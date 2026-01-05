@@ -1,0 +1,26 @@
+apiVersion: v1 
+metadata: 
+     name: ci-pod ##ci=cluster ip
+     labels:
+         app: podci  #tags     
+kind:  Pod
+spec: 
+     containers:
+      - name: nginx-container 
+        image: nginx
+        ports:
+          - containerPort: 80
+
+---
+apiVersion: v1
+metadata: 
+    name: ci-service
+kind: Service
+spec: 
+    selector:
+        app: podci
+    type: LoadBalancer
+    ports:
+      - protocol: TCP 
+        port: 80 
+        targetPort: 80
