@@ -10,7 +10,7 @@ spec:
     metadata:
       name: np-pod
       labels:
-        app: np-pod #tags
+        app: podnp #tags
   spec:
       containers:
         - name: nginx-container
@@ -19,4 +19,4 @@ spec:
             - containerPort: 80
   selector: 
     matchLabels:
-        app: np-pod
+        app: podnp
