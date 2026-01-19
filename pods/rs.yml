@@ -5,13 +5,13 @@ metadata:
    labels:
      app: myapp
 spec:
-  replicas: 4
+  replicas: 3
   template:
     metadata:
       name: np-pod
       labels:
         app: podnp #tags
-  spec:
+    spec:
       containers:
         - name: nginx-container
           image: nginx
