@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: my-daemonset
+  labels:
+    app: my-daemonset-app
+spec:
+  selector:
+    matchLabels:
+      app: daemonset
+  template:
+    metadata:
+      name: cwagent-pod
+      labels:
+        app: daemonset #tags
+    spec:
+      containers:
+      - name: cwagent-container
+        image: amazon/cloudwatch-agent
+        ports:
+        - containerPort: 80
